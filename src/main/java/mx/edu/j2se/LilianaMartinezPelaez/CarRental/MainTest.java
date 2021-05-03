@@ -1,5 +1,10 @@
 package mx.edu.j2se.LilianaMartinezPelaez.CarRental;
 
+/* AUTHOR: LILI MP
+ * NC TRAINEE PROGRAM
+ * PROJECT: CAR RENTAL
+ */
+
 import java.sql.*;
 import static mx.edu.j2se.LilianaMartinezPelaez.CarRental.MainConnectionDB.getConnection;
 import static mx.edu.j2se.LilianaMartinezPelaez.CarRental.MainConnectionDB.close;
