@@ -1,38 +1,69 @@
-package mx.edu.j2se.LilianaMartinezPelaez.CarRental;
+package mx.edu.j2se.LilianaMartinezPelaez.CarRental.model;
 
 /* AUTHOR: LILI MP
  * NC TRAINEE PROGRAM
- * PROYECT: CAR RENTAL
+ * PROJECT: CAR RENTAL
  */
 
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.*;
 import java.util.Date;
 
+@Entity
+@Table(name = "reservations")
 public class Reservation {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idReservation;
-    private int idUserGuest;
-    private int numberPlate;
+
+    @Column(name = "PICKUP_DATE")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date pickUpDate;
+
+    @Column(name = "RETURN_DATE")
+    @Temporal(TemporalType.DATE)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date returnDate;
+
+    @Column(name = "TOTAL_PRICE")
     private float totalPrice;
+
+
     private int availability;
+    @Column(name = "ISAVAILABILITY")
     private boolean isAvailability;
+
+    @ManyToOne
+    @JoinColumn(name= "ID_USER_GUEST")
+    private int idUserGuest;
+
+    @OneToOne
+    @JoinColumn(name= "VEHICLES_NUMBER_PLATE")
+    private int numberPlate;
 
     //*********************************
     // CONSTRUCTORS                   *
     // ********************************
 
+    public Reservation() {
+        super();
+    }
+
     public Reservation(int idReservation) {
         this.idReservation = idReservation;
     }
 
-    public Reservation(int idReservation, int idUserGuest, int numberPlate, Date pickUpDate, Date returnDate, float totalPrice) {
+    public Reservation(int idReservation, int idUserGuest, int numberPlate, Date pickUpDate, Date returnDate, float totalPrice, int availability) {
         this.idReservation = idReservation;
         this.idUserGuest = idUserGuest;
         this.numberPlate = numberPlate;
         this.pickUpDate = pickUpDate;
         this.returnDate = returnDate;
         this.totalPrice = totalPrice;
+        this.availability = availability;
     }
 
     //*********************************
@@ -59,7 +90,7 @@ public class Reservation {
     public int getIdUserGuest() {
         return idUserGuest;
     }
-    public void setIdUserGuest(int numberPlate) {
+    public void setIdUserGuest(int idUserGuest) {
         this.idUserGuest = idUserGuest;
     }
 
@@ -79,6 +110,14 @@ public class Reservation {
         this.returnDate = returnDate;
     }
 
+    // Reading and setting total price
+    public float getTotalPrice() {
+        return totalPrice;
+    }
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     //Reading and setting availability
     public boolean isAvailability() {
         if (availability == 0 ) {
@@ -87,7 +126,6 @@ public class Reservation {
             return isAvailability = true;
         }
     }
-
     @Override
     public String toString() {
         return "Reservation [" +
