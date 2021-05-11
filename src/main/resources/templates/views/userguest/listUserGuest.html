@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="GeneralTemplate :: head"> </head>
+<body>
+    <header th:replace="GeneralTemplate :: header"></header>
+
+    <div class="container"></div>
+        <h2 th:text="${title}"></h2>
+        <p th:text="${UserGuest}"></p>
+    </div>
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Residence</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">eMail</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:eacH="userguest : ${UserGuest}">
+                <th scope="row" th:text="${userguest.ID_USER_GUEST}"></th>
+                <td th:text="${th:text=${userguest.firstName}"></td>
+                <td th:text="${th:text=${userguest.lastName}"></td>
+                <td th:text="${th:text=${userguest.age}"></td>
+                <td th:text="${th:text=${userguest.residence}"></td>
+                <td th:text="${th:text=${userguest.phoneNumber}"></td>
+                <td th:text="${th:text=${userguest.eMail}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer th:replace="GeneralTemplate :: footer"></footer>
+</body>
+</html>

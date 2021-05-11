@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head th:replace="GeneralTemplate :: head"> </head>
+<body>
+<header th:replace="GeneralTemplate :: header"></header>
+
+<div class="container"></div>
+
+<div class="card bg-light">
+    <div class="card-header bg-dark text-white"></div>
+    <div class="card-body">
+
+
+
+    <form action="/action_page.php">
+        <div class="form-group">
+            <label for="firstname">First Name:</label>
+            <input type="text" class="form-control" placeholder="First name" id="firstname">
+        </div>
+        <div class="form-group">
+            <label for="lastname">Last Name:</label>
+            <input type="text" class="form-control" placeholder="Last name" id="lastname">
+        </div>
+        <div class="form-group">
+            <label for="age">Age: </label>
+            <input type="text" class="form-control" placeholder="Age" id="age">
+        </div>
+        <div class="form-group">
+            <label for="residence">Residence:</label>
+            <input type="text" class="form-control" placeholder="Residence" id="residence">
+        </div>
+        <div class="form-group">
+            <label for="phonenumber">Phone number:</label>
+            <input type="text" class="form-control" placeholder="Phone number" id="phonenumber">
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" class="form-control" placeholder="Email" id="email">
+        </div>
+
+        <div class="card-footer">
+            <input type="submit" class="btn btn-primary" value="Continue">
+        </div>
+
+    </form>
+    </div>
+</div>
+
+
+</div>
+
+<footer th:replace="GeneralTemplate :: footer"></footer>
+</body>
+</html>
